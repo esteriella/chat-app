@@ -480,7 +480,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../../config/firebase';
-import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp, doc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from 'firebase/firestore';
 import { useParams, useNavigate } from 'react-router-dom';
 import ChatMessage from './ChatMessage';
 
@@ -558,16 +558,30 @@ function ChatRoom() {
     }
   };
 
+  const handleBackToDashboard = () => {
+    navigate('/dashboard'); // Navigate to the dashboard route
+  };
+
   return (
     <div className="flex flex-col h-screen bg-gray-100">
       <header className="flex items-center justify-between p-4 bg-[#b1648fff] text-white">
         <h1 className="text-lg font-bold">Chat Room</h1>
+        <div>
         <button
           className="bg-[#6ab4c1ff] hover:bg-[#b1648fff] text-white font-bold py-2 px-4 rounded"
           onClick={handleSignOut}
         >
           Sign Out
         </button>
+        {/* Back Button */}
+        <button
+          className="bg-[#b1648fff] hover:bg-[#6ab4c1ff] text-white font-bold py-2 px-4 rounded ml-4"
+          onClick={handleBackToDashboard}
+        >
+          Back
+        </button>
+        </div>
+        
       </header>
 
       <main className="flex-1 overflow-y-auto p-4">

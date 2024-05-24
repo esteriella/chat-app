@@ -5,7 +5,6 @@ import { auth, db, storage } from "../../config/firebase";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 
 function Profile() {
   const [user, loading] = useAuthState(auth);
@@ -33,65 +32,18 @@ function Profile() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading, navigate]);
 
-  
-  // const fetchProfile = async () => {
-  //   if (!user) return;
-
-  //   try {
-  //     const userDocRef = doc(db, "users", user.uid);
-  //     const userDocSnap = await getDoc(userDocRef);
-
-  //     if (userDocSnap.exists()) {
-  //       const userData = userDocSnap.data();
-  //       setProfile(userData);
-
-  //       if (userData.photoURL) {
-  //         const photoURL = await getDownloadURL(ref(storage, userData.photoURL));
-  //         setProfile((prevProfile) => ({
-  //           ...prevProfile,
-  //           photoURL: photoURL,
-  //         }));
-  //       }
-  //     } else {
-  //       await setDoc(userDocRef, {
-  //         uid: user.uid,
-  //         firstname: "",
-  //         lastname: "",
-  //         dob: "",
-  //         interests: "",
-  //         phone: "",
-  //         location: "",
-  //         online: true,
-  //         photoURL: "",
-  //       });
-  //       setProfile({
-  //         uid: user.uid,
-  //         firstname: "",
-  //         lastname: "",
-  //         dob: "",
-  //         interests: "",
-  //         phone: "",
-  //         location: "",
-  //         online: true,
-  //         photoURL: "",
-  //       });
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching user data:", error);
-  //   }
-  // };
   const fetchProfile = async () => {
     if (!user) return;
-  
+
     try {
       const userDocRef = doc(db, "users", user.uid);
       const userDocSnap = await getDoc(userDocRef);
-  
+
       if (userDocSnap.exists()) {
         const userData = userDocSnap.data();
         setProfile(userData);
-  
-        if (userData.photoURL) {
+
+        if (userData.photoURL && !userData.photoURL.startsWith("http")) {
           const photoURL = await getDownloadURL(ref(storage, userData.photoURL));
           setProfile((prevProfile) => ({
             ...prevProfile,
@@ -107,7 +59,7 @@ function Profile() {
           interests: "",
           phone: "",
           location: "",
-          online: true, // Set online status to true for new user profile
+          online: true,
           photoURL: "",
         });
         setProfile({
@@ -122,7 +74,7 @@ function Profile() {
           photoURL: "",
         });
       }
-  
+
       // Update user's online status to true
       await updateDoc(doc(db, "users", user.uid), {
         online: true,
@@ -311,3 +263,4 @@ function Profile() {
 }
 
 export default Profile;
+

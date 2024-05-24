@@ -20,7 +20,7 @@ function Reset() {
         <img src={Chat} width={800} alt="#" />
         <div className="flex flex-col items-center justify-center">
           <div className="mx-8 lg:mx-0 flex justify-center items-center h-screen">
-            <div className="lg:-mt-52 -mt-[750px] lg:mx-0 w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
+            <div className="lg:-mt-52 md:-mt-[650px] -mt-[500px] lg:mx-0 w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
               <h2 className="mb-6 text-[#b1648fff] text-lg font-bold mt-5">
                 Reset Password
               </h2>
@@ -68,7 +68,7 @@ function Reset() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center mx-10 lg:-mt-32 -mt-[700px] mb-8">
+          <div className="flex flex-col items-center mx-10 lg:-mt-32 md:-mt-[450px] -mt-[450px] mb-8">
             <h2 className="mb-4 text-[#b1648fff] text-lg font-semibold ">
               Don't have an account?
             </h2>
