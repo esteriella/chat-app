@@ -89,7 +89,7 @@ function Navbar() {
         {menuOpen &&
           <div className=" top-16 right-0 p-10 gap-4 bg-white text-start text-gray-800 absolute lg:hidden flex flex-col">
             <Link to="/messages" className=" hover:text-[#6ab4c1ff]">
-              Dashboard
+              Messages
             </Link>
             <Link to="/profile" className=" hover:text-[#6ab4c1ff]">
               Profile
