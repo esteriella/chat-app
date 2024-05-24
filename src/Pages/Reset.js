@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
-import { auth, sendPasswordReset } from "../config/firebase";
+import { auth } from "../config/firebase";
 import Chat from "../assets/images/img1.jpg";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 function Reset() {
   const [email, setEmail] = useState("");
@@ -54,7 +55,7 @@ function Reset() {
                 <button
                   type="submit"
                   className="lg:mx-8 mx-10 w-60 lg:w-80 bg-[#b1648fff] text-white py-3 rounded hover:bg-[#6ab4c1ff] hover:text-white transition duration-300"
-                  onClick={() => sendPasswordReset(email)}
+                  onClick={() => sendPasswordResetEmail(email)}
                 >
                   Send password reset email
                 </button>
