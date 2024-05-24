@@ -228,9 +228,9 @@ function Register() {
 
   useEffect(
     () => {
-      if (loading) {
-        return;
-      }
+      // if (loading) {
+      //   return;
+      // }
       if (user) {
         navigate("/messages");
       }
@@ -351,6 +351,11 @@ function Register() {
     },
     [navigate]
   );
+
+  if (loading) {
+    return <div className="font-bold text-xl text-[#6ab4c1ff] text-center">Loading...</div>; // Show loading state if authentication is in progress
+  }
+
 
   return (
     <div className="h-screen lg:overflow-x-hidden">

@@ -9,10 +9,15 @@ function Reset() {
   const [user, loading] = useAuthState(auth);
 
   useEffect(() => {
-    if (loading) return;
+    if (loading) {
+      return <div className="font-bold text-xl text-[#6ab4c1ff] text-center">Loading...</div>; // Show loading state if authentication is in progress
+    }
     // Uncomment and implement navigation logic if needed
     // if (user) navigate("/messages");
   }, [user, loading]);
+
+  
+
 
   return (
     <div className="h-screen lg:overflow-x-hidden">

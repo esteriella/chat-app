@@ -56,7 +56,7 @@ function Navbar() {
         </h1>
         <div className="space-x-4 lg:flex hidden">
           <Link to="/messages" className="text-white hover:text-[#6ab4c1ff]">
-            Dashboard
+            Messages
           </Link>
           <Link to="/profile" className="text-white hover:text-[#6ab4c1ff]">
             Profile

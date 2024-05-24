@@ -19,34 +19,46 @@ function Login() {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (loading) {
-      return;
-    }
-    if (user) {
-      navigate("/messages");
-    }
-    if (error) {
-      console.error("Error with authentication state: ", error);
-      alert("Error: " + error.message);
-    }
-  }, [user, loading, error, navigate]);
+  useEffect(
+    () => {
+      // if (loading) {
+      //   return;
+      // }
+
+      if (user) {
+        navigate("/messages");
+      }
+      if (error) {
+        console.error("Error with authentication state: ", error);
+        alert("Error: " + error.message);
+      }
+    },
+    [user, loading, error, navigate]
+  );
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       const user = userCredential.user;
       const userDocRef = doc(db, "users", user.uid);
-      await setDoc(userDocRef, {
-        uid: user.uid,
-        authProvider: "local",
-        email
-      }, { merge: true });
+      await setDoc(
+        userDocRef,
+        {
+          uid: user.uid,
+          authProvider: "local",
+          email
+        },
+        { merge: true }
+      );
       localStorage.setItem("token", user.accessToken);
       localStorage.setItem("user", JSON.stringify(user));
       setEmail("");
@@ -68,30 +80,42 @@ function Login() {
     }
   };
 
-  useEffect(() => {
-    const checkRedirectResult = async () => {
-      try {
-        const result = await getRedirectResult(auth);
-        if (result) {
-          const user = result.user;
-          const userDocRef = doc(db, "users", user.uid);
-          await setDoc(userDocRef, {
-            uid: user.uid,
-            displayName: user.displayName,
-            email: user.email,
-            photoURL: user.photoURL,
-            phoneNumber: user.phoneNumber
-          }, { merge: true });
-          setEmail("");
-          setPassword("");
-          navigate("/messages");
+  useEffect(
+    () => {
+      const checkRedirectResult = async () => {
+        try {
+          const result = await getRedirectResult(auth);
+          if (result) {
+            const user = result.user;
+            const userDocRef = doc(db, "users", user.uid);
+            await setDoc(
+              userDocRef,
+              {
+                uid: user.uid,
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                phoneNumber: user.phoneNumber
+              },
+              { merge: true }
+            );
+            setEmail("");
+            setPassword("");
+            navigate("/messages");
+          }
+        } catch (err) {
+          console.error(err);
         }
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    checkRedirectResult();
-  }, [navigate]);
+      };
+      checkRedirectResult();
+    },
+    [navigate]
+  );
+
+  
+  if (loading) {
+    return <div className="font-bold text-xl text-[#6ab4c1ff] text-center">Loading...</div>; // Show loading state if authentication is in progress
+  }
 
   return (
     <div className="h-screen lg:overflow-hidden">
@@ -116,7 +140,7 @@ function Login() {
                     id="email"
                     name="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={e => setEmail(e.target.value)}
                     required
                     placeholder="example@gmail.com"
                     className="border border-gray-400 text-xs px-3 py-3 rounded lg:w-80 w-60"
@@ -134,7 +158,7 @@ function Login() {
                         id="password"
                         name="password"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        onChange={e => setPassword(e.target.value)}
                         required
                         placeholder="********"
                         className="border border-gray-400 text-xs px-3 py-3 rounded pr-10 lg:w-80 w-60"

@@ -178,7 +178,7 @@ function Messages() {
   };
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading state if authentication is in progress
+    return <div className="font-bold text-xl text-[#6ab4c1ff]">Loading...</div>; // Show loading state if authentication is in progress
   }
 
   if (!user) {
