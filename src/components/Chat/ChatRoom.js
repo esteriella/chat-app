@@ -561,7 +561,7 @@ function ChatRoom() {
   };
 
   const handleBackToDashboard = () => {
-    navigate('/dashboard'); // Navigate to the dashboard route
+    navigate('/messages'); // Navigate to the dashboard route
   };
 
   return (
@@ -573,7 +573,7 @@ function ChatRoom() {
           className="bg-[#6ab4c1ff] hover:bg-[#b1648fff] text-white font-bold py-2 px-4 rounded"
           onClick={handleSignOut}
         >
-          Sign Out
+          Log Out
         </button>
         {/* Back Button */}
         <button

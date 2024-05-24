@@ -81,9 +81,26 @@ function Notifications() {
     }
   };
 
+  const handleBackToDashboard = () => {
+    navigate('/messages'); // Navigate to the dashboard route
+  };
+
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Notifications</h2>
+      <header className="flex items-center justify-between p-4 bg-[#b1648fff] text-white">
+        <h1 className="text-lg font-bold">Notifications</h1>
+        <div>
+        {/* Back Button */}
+        <button
+          className="bg-[#b1648fff] hover:bg-[#6ab4c1ff] text-white font-bold py-2 px-4 rounded ml-4"
+          onClick={handleBackToDashboard}
+        >
+          Back
+        </button>
+        </div>
+        
+      </header>
+
       {notifications.length > 0
         ? notifications.map(notification =>
             <div
@@ -103,7 +120,7 @@ function Notifications() {
               </button>
             </div>
           )
-        : <p>
+        : <p className="p-4 mb-2 bg-gray-200 rounded-lg text-center">
             {noNotificationsMessage}
           </p>}
     </div>

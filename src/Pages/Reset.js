@@ -11,16 +11,16 @@ function Reset() {
   useEffect(() => {
     if (loading) return;
     // Uncomment and implement navigation logic if needed
-    // if (user) navigate("/dashboard");
+    // if (user) navigate("/messages");
   }, [user, loading]);
 
   return (
-    <div className="h-screen lg:overflow-hidden">
-      <div className="flex lg:flex-row flex-col lg:gap-36 gap-10">
-        <img src={Chat} width={800} alt="#" />
+    <div className="h-screen lg:overflow-x-hidden">
+      <div className="flex lg:flex-row flex-col lg:gap-20 sm:gap-5">
+        <img src={Chat} className="lg:w-3/5" alt="#" />
         <div className="flex flex-col items-center justify-center">
           <div className="mx-8 lg:mx-0 flex justify-center items-center h-screen">
-            <div className="lg:-mt-52 md:-mt-[650px] -mt-[500px] lg:mx-0 w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
+            <div className="lg:-mt-32 sm:-mt-[270px] lg:mx-0 sm:w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
               <h2 className="mb-6 text-[#b1648fff] text-lg font-bold mt-5">
                 Reset Password
               </h2>
@@ -45,7 +45,7 @@ function Reset() {
                 </div>
                 <button
                   type="submit"
-                  className="mx-10 w-60 lg:w-80 bg-[#b1648fff] text-white py-3 rounded hover:bg-[#6ab4c1ff] hover:text-white transition duration-300"
+                  className="lg:mx-8 mx-10 w-60 lg:w-80 bg-[#b1648fff] text-white py-3 rounded hover:bg-[#6ab4c1ff] hover:text-white transition duration-300"
                   onClick={() => sendPasswordReset(email)}
                 >
                   Send password reset email
@@ -68,7 +68,7 @@ function Reset() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center mx-10 lg:-mt-32 md:-mt-[450px] -mt-[450px] mb-8">
+          <div className="flex flex-col items-center mx-10 lg:-mt-32 mb-8">
             <h2 className="mb-4 text-[#b1648fff] text-lg font-semibold ">
               Don't have an account?
             </h2>

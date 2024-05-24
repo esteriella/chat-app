@@ -24,7 +24,7 @@ function Login() {
       return;
     }
     if (user) {
-      navigate("/dashboard");
+      navigate("/messages");
     }
     if (error) {
       console.error("Error with authentication state: ", error);
@@ -51,7 +51,7 @@ function Login() {
       localStorage.setItem("user", JSON.stringify(user));
       setEmail("");
       setPassword("");
-      navigate("/dashboard");
+      navigate("/messages");
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -84,7 +84,7 @@ function Login() {
           }, { merge: true });
           setEmail("");
           setPassword("");
-          navigate("/dashboard");
+          navigate("/messages");
         }
       } catch (err) {
         console.error(err);
@@ -95,11 +95,11 @@ function Login() {
 
   return (
     <div className="h-screen lg:overflow-hidden">
-      <div className="flex lg:flex-row flex-col lg:gap-36 gap-10">
-        <img src={Chat} width={800} alt="#" />
+      <div className="flex lg:flex-row flex-col lg:gap-36 sm:gap-10 h-screen">
+        <img src={Chat} className="md:w-3/5 h-full" alt="#" />
         <div className="flex flex-col items-center justify-center">
           <div className="mx-8 lg:mx-0 flex justify-center items-center h-screen">
-            <div className="lg:-mt-52 md:-mt-[650px] -mt-[350px] lg:mx-0 w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
+            <div className="lg:-mt-32 sm:-mt-[200px] lg:mx-0 w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
               <h2 className="mb-6 text-[#b1648fff] text-lg font-bold mt-5">
                 Log Into Your Account
               </h2>
@@ -192,7 +192,7 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center mx-10 lg:-mt-32 md:-mt-[650px] -mt-[300px] mb-8">
+          <div className="flex flex-col items-center mx-10 lg:-mt-32  mb-8">
             <h2 className="mb-4 text-[#b1648fff] text-lg font-semibold ">
               Don't have an account?
             </h2>

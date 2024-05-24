@@ -19,7 +19,7 @@
 //       return;
 //     }
 //     if (user) {
-//       navigate("/dashboard");
+//       navigate("/messages");
 //     }
 //     if (error) {
 //       console.error("Error with authentication state: ", error);
@@ -45,7 +45,7 @@
 //       setEmail("");
 //       setPassword("");
 //       setConfirmPassword("");
-//       navigate("/dashboard");
+//       navigate("/messages");
 //     } catch (err) {
 //       console.error(err);
 //       alert(err.message);
@@ -79,7 +79,7 @@
 //           setEmail("");
 //           setPassword("");
 //           setConfirmPassword("");
-//           navigate("/dashboard");
+//           navigate("/messages");
 //         }
 //       } catch (err) {
 //         console.error(err);
@@ -232,7 +232,7 @@ function Register() {
         return;
       }
       if (user) {
-        navigate("/dashboard");
+        navigate("/messages");
       }
       if (error) {
         console.error("Error with authentication state: ", error);
@@ -302,7 +302,7 @@ function Register() {
       setPassword("");
       setConfirmPassword("");
       setDisplayName("");
-      navigate("/dashboard");
+      navigate("/messages");
     } catch (err) {
       console.error(err);
       alert(err.message);
@@ -341,7 +341,7 @@ function Register() {
             setEmail("");
             setPassword("");
             setConfirmPassword("");
-            navigate("/dashboard");
+            navigate("/messages");
           }
         } catch (err) {
           console.error(err);
@@ -353,13 +353,13 @@ function Register() {
   );
 
   return (
-    <div className="h-screen lg:overflow-hidden">
-      <div className="flex lg:flex-row flex-col lg:gap-36 gap-10">
-        <img src={Chat} width={800} alt="#" />
+    <div className="h-screen lg:overflow-x-hidden">
+      <div className="flex lg:flex-row flex-col lg:gap-20 sm:gap-10">
+        <img src={Chat} className="md:w-3/5" alt="#" />
         <div className="flex flex-col items-center justify-center">
           <div className="mx-8 lg:mx-0 flex justify-center items-center h-screen">
-            <div className="lg:-mt-52 md:-mt-[450px] -mt-[300px] lg:mx-0 w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
-              <h2 className="mb-6 text-[#b1648fff] text-lg font-bold mt-5">
+            <div className="lg:-mt-20 sm:-mt-[200px] lg:mx-0 w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
+              <h2 className="mb-6 text-[#b1648fff] text-lg font-bold mt-20">
                 Create Your Account
               </h2>
               <form className="relative" onSubmit={handleSubmit}>
@@ -454,7 +454,7 @@ function Register() {
                 </div>
                 <button
                   type="submit"
-                  className="mx-10 w-60 lg:w-80 bg-[#b1648fff] text-white py-3 rounded hover:bg-[#6ab4c1ff] hover:text-white transition duration-300"
+                  className="mx-10 md:mx-8 w-60 lg:w-80 bg-[#b1648fff] text-white py-3 rounded hover:bg-[#6ab4c1ff] hover:text-white transition duration-300"
                 >
                   Register
                 </button>
@@ -478,7 +478,7 @@ function Register() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center mx-10 lg:-mt-32 md:-mt-[460px] -mt-[250px] mb-8">
+          <div className=" flex flex-col items-center mx-10 lg:-mt-5  mb-8">
             <h2 className="mb-4 text-[#b1648fff] text-lg font-semibold ">
               Already have an account?
             </h2>

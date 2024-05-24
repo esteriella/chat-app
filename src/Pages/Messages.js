@@ -127,7 +127,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Layout/Navbar";
 
-function Dashboard() {
+function Messages() {
   const [users, setUsers] = useState([]);
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
@@ -222,7 +222,7 @@ function Dashboard() {
                   to={`/chat/${generateChatId(user.uid, userItem.id)}`}
                   className="bg-[#b1648fff] hover:bg-[#6ab4c1ff] text-white font-bold py-2 px-4 rounded"
                 >
-                  Start Chat
+                  Chat
                 </Link>
               )}
             </div>
@@ -239,5 +239,5 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Messages;
 

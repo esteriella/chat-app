@@ -73,7 +73,7 @@
 //           React<span className="text-[#6ab4c1ff]">ChatApp</span>
 //         </h1>
 //         <div className="space-x-4">
-//           <Link to="/dashboard" className="text-white hover:text-[#6ab4c1ff]">
+//           <Link to="/messages" className="text-white hover:text-[#6ab4c1ff]">
 //             Dashboard
 //           </Link>
 //           <Link to="/profile" className="text-white hover:text-[#6ab4c1ff]">
@@ -172,7 +172,7 @@
 //             ? "block"
 //             : "hidden"} md:block`}
 //         >
-//           <Link to="/dashboard" className="text-white hover:text-[#6ab4c1ff]">
+//           <Link to="/messages" className="text-white hover:text-[#6ab4c1ff]">
 //             Dashboard
 //           </Link>
 //           <Link to="/profile" className="text-white hover:text-[#6ab4c1ff]">
@@ -250,7 +250,7 @@ function Navbar() {
           React<span className="text-[#6ab4c1ff]">ChatApp</span>
         </h1>
         <div className="space-x-4 lg:flex hidden">
-          <Link to="/dashboard" className="text-white hover:text-[#6ab4c1ff]">
+          <Link to="/messages" className="text-white hover:text-[#6ab4c1ff]">
             Dashboard
           </Link>
           <Link to="/profile" className="text-white hover:text-[#6ab4c1ff]">
@@ -283,7 +283,7 @@ function Navbar() {
         {/* Responsive Menu Links */}
         {menuOpen &&
           <div className=" top-16 right-0 p-10 gap-4 bg-white text-start text-gray-800 absolute lg:hidden flex flex-col">
-            <Link to="/dashboard" className=" hover:text-[#6ab4c1ff]">
+            <Link to="/messages" className=" hover:text-[#6ab4c1ff]">
               Dashboard
             </Link>
             <Link to="/profile" className=" hover:text-[#6ab4c1ff]">
