@@ -13,26 +13,28 @@ function Notifications() {
   useEffect(() => {
     if (!user) return;
 
+    // Creating a query to fetch notifications where 'receiverId' matches 'user.uid'
+    // and the notification 'read' status is false
     const q = query(
-      collection(db, "notifications", user.uid, "userNotifications"),
+      collection(db, "notifications"),
+      where("receiverId", "==", user.uid),
       where("read", "==", false)
     );
 
-    const unsubscribe = onSnapshot(q, querySnapshot => {
+    const notifMessages = onSnapshot(q, querySnapshot => {
       const notifications = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }));
+
       setNotifications(notifications);
 
-      if (notifications.length === 0) {
-        setNoNotificationsMessage("No new notifications");
-      } else {
-        setNoNotificationsMessage("");
-      }
+      // Updating the message based on whether there are notifications
+      setNoNotificationsMessage(notifications.length === 0 ? "No new notifications" : "");
     });
 
-    return () => unsubscribe();
+    // Cleanup function to notifMessages from the listener when the component unmounts
+    return () => notifMessages();
   }, [user]);
 
   const handleViewChat = async (notificationId, chatId) => {

@@ -468,7 +468,7 @@ function Profile() {
                 onClick={handleSignOut}
                 className="bg-gray-500 text-white py-2 px-4 rounded"
               >
-                Sign Out
+                Log Out
               </button>
             </div>
           </div>

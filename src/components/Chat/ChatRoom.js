@@ -544,7 +544,8 @@ function ChatRoom() {
         read: false
       };
 
-      await addDoc(collection(db, 'notifications', receiverId, 'userNotifications'), notificationData);
+     // Add the document directly to the 'notifications' collection
+  await addDoc(collection(db, 'notifications'), notificationData);
     }
 
     setNewMessage('');
