@@ -223,7 +223,6 @@ function Navbar() {
       const unread = query(notificationsRef, where("read", "==", false));
       const snapshot = await getCountFromServer(unread);
       const count = snapshot.data().count;
-      console.log(count);
       setNotificationCount(count);
     } catch (error) {
       console.error("Error fetching notifications count:", error);
