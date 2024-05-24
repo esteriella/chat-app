@@ -30,6 +30,7 @@ function Profile() {
     } else {
       fetchProfile();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, loading, navigate]);
 
   const fetchProfile = async () => {
