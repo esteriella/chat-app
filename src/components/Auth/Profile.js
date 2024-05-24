@@ -134,7 +134,7 @@ function Profile() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <div className="flex-grow container mx-auto p-6 bg-white">
+      <div className="flex-grow container p-6 bg-white">
         <h2 className="text-2xl font-bold mb-4">Profile</h2>
         <div className="mb-4">
           <span className="text-xl">Status: </span>
