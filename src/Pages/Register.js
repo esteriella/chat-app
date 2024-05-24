@@ -468,7 +468,7 @@ function Register() {
                 </button>
               </form>
 
-              <div className="flex items-center mx-10 mt-8">
+              <div className="flex items-center lg:mx-8 mx-10 mt-8">
                 <hr className="flex-grow border-t-2 border-[#b1648fff] mr-1" />
                 <span className="text-gray-500">OR</span>
                 <hr className="flex-grow border-t-2 border-[#b1648fff] ml-1" />
