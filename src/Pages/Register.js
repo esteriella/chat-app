@@ -361,7 +361,7 @@ function Register() {
   }
 
   return (
-    <div className="h-screen lg:overflow-x-hidden">
+    <div className="h-screen overflow-hidden">
       <div className="flex lg:flex-row flex-col lg:gap-20 sm:gap-10 h-screen">
         <img src={Chat} className="hidden md:block" alt="#" />
         <div className="flex flex-col items-center justify-center sm:mx-auto lg:mx-0">
