@@ -23,7 +23,7 @@ function Reset() {
   );
 
   return (
-    <div className="h-screen overflow-hidden">
+    <div className="h-screen lg:overflow-hidden">
       <div className="flex lg:flex-row flex-col lg:gap-20 sm:gap-5 h-screen">
         <img src={Chat} className="hidden md:block" alt="#" />
         <div className="flex flex-col items-center justify-center sm:mx-auto lg:mx-0">
