@@ -112,16 +112,19 @@ function Login() {
     [navigate]
   );
 
-  
   if (loading) {
-    return <div className="font-bold text-xl text-[#6ab4c1ff] text-center">Loading...</div>; // Show loading state if authentication is in progress
+    return (
+      <div className="font-bold text-xl text-[#6ab4c1ff] text-center">
+        Loading...
+      </div>
+    ); // Show loading state if authentication is in progress
   }
 
   return (
     <div className="h-screen lg:overflow-hidden">
-      <div className="flex lg:flex-row flex-col lg:gap-36 sm:gap-10 h-screen">
-        <img src={Chat} className="md:w-3/5 h-full" alt="#" />
-        <div className="flex flex-col items-center justify-center">
+      <div className="flex lg:flex-row flex-col lg:gap-20 sm:gap-10 h-screen">
+        <img src={Chat} className="hidden md:block h-full" alt="#" />
+        <div className="flex flex-col items-center justify-center sm:mx-auto lg:mx-0">
           <div className="mx-8 lg:mx-0 flex justify-center items-center h-screen">
             <div className="lg:-mt-32 sm:-mt-[200px] lg:mx-0 w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
               <h2 className="mb-6 text-[#b1648fff] text-lg font-bold mt-5">
@@ -192,13 +195,13 @@ function Login() {
                 </label>
                 <button
                   type="submit"
-                  className="mx-8 w-60 lg:w-80 bg-[#b1648fff] text-white py-3 rounded hover:bg-[#6ab4c1ff] hover:text-white transition duration-300"
+                  className="lg:mx-8 mx-10 w-60 lg:w-80 bg-[#b1648fff] text-white py-3 rounded hover:bg-[#6ab4c1ff] hover:text-white transition duration-300"
                 >
                   Log In
                 </button>
               </form>
 
-              <div className="flex items-center mx-10 mt-8">
+              <div className="flex items-center lg:mx-8 mx-10 mt-8">
                 <hr className="flex-grow border-t-2 border-[#b1648fff] mr-1" />
                 <span className="text-gray-500">OR</span>
                 <hr className="flex-grow border-t-2 border-[#b1648fff] ml-1" />
@@ -216,7 +219,7 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center mx-10 lg:-mt-32  mb-8">
+          <div className="flex flex-col items-center mx-10 lg:-mt-32 mb-8">
             <h2 className="mb-4 text-[#b1648fff] text-lg font-semibold ">
               Don't have an account?
             </h2>

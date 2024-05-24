@@ -8,28 +8,31 @@ function Reset() {
   const [email, setEmail] = useState("");
   const [user, loading] = useAuthState(auth);
 
-  useEffect(() => {
-    if (loading) {
-      return <div className="font-bold text-xl text-[#6ab4c1ff] text-center">Loading...</div>; // Show loading state if authentication is in progress
-    }
-    // Uncomment and implement navigation logic if needed
-    // if (user) navigate("/messages");
-  }, [user, loading]);
-
-  
-
+  useEffect(
+    () => {
+      if (loading) {
+        <div className="font-bold text-xl text-[#6ab4c1ff] text-center">
+          Loading...
+        </div>;
+        // Show loading state if authentication is in progress
+      }
+      // Uncomment and implement navigation logic if needed
+      // if (user) navigate("/messages");
+    },
+    [user, loading]
+  );
 
   return (
     <div className="h-screen lg:overflow-x-hidden">
-      <div className="flex lg:flex-row flex-col lg:gap-20 sm:gap-5">
-        <img src={Chat} className="lg:w-3/5" alt="#" />
-        <div className="flex flex-col items-center justify-center">
+      <div className="flex lg:flex-row flex-col lg:gap-20 sm:gap-5 h-screen">
+        <img src={Chat} className="hidden md:block" alt="#" />
+        <div className="flex flex-col items-center justify-center sm:mx-auto lg:mx-0">
           <div className="mx-8 lg:mx-0 flex justify-center items-center h-screen">
             <div className="lg:-mt-32 sm:-mt-[270px] lg:mx-0 sm:w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
               <h2 className="mb-6 text-[#b1648fff] text-lg font-bold mt-5">
                 Reset Password
               </h2>
-              <form className="relative" onSubmit={(e) => {}}>
+              <form className="relative" onSubmit={e => {}}>
                 <div className="mx-10 flex flex-col gap-3 items-center mb-2 relative">
                   <label
                     htmlFor="email"
@@ -42,7 +45,7 @@ function Reset() {
                     id="email"
                     name="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={e => setEmail(e.target.value)}
                     required
                     placeholder="example@gmail.com"
                     className="border border-gray-400 text-xs px-3 py-3 rounded lg:w-80 w-60"

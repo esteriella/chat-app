@@ -353,15 +353,18 @@ function Register() {
   );
 
   if (loading) {
-    return <div className="font-bold text-xl text-[#6ab4c1ff] text-center">Loading...</div>; // Show loading state if authentication is in progress
+    return (
+      <div className="font-bold text-xl text-[#6ab4c1ff] text-center">
+        Loading...
+      </div>
+    ); // Show loading state if authentication is in progress
   }
-
 
   return (
     <div className="h-screen lg:overflow-x-hidden">
-      <div className="flex lg:flex-row flex-col lg:gap-20 sm:gap-10">
-        <img src={Chat} className="md:w-3/5" alt="#" />
-        <div className="flex flex-col items-center justify-center">
+      <div className="flex lg:flex-row flex-col lg:gap-20 sm:gap-10 h-screen">
+        <img src={Chat} className="hidden md:block" alt="#" />
+        <div className="flex flex-col items-center justify-center sm:mx-auto lg:mx-0">
           <div className="mx-8 lg:mx-0 flex justify-center items-center h-screen">
             <div className="lg:-mt-20 sm:-mt-[200px] lg:mx-0 w-80 h-auto lg:w-96 z-10 bg-accent-white pb-12">
               <h2 className="mb-6 text-[#b1648fff] text-lg font-bold mt-20">
@@ -483,8 +486,8 @@ function Register() {
               </div>
             </div>
           </div>
-          <div className=" flex flex-col items-center mx-10 lg:-mt-5  mb-8">
-            <h2 className="mb-4 text-[#b1648fff] text-lg font-semibold ">
+          <div className="flex flex-col items-center mx-10 lg:-mt-5 mb-8">
+            <h2 className="mb-4 text-[#b1648fff] text-lg font-semibold">
               Already have an account?
             </h2>
             <Link
