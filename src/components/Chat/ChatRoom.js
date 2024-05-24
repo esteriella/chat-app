@@ -538,6 +538,7 @@ function ChatRoom() {
         chatId,
         message: newMessage,
         senderId: user.uid,
+        receiverId: receiverId,
         displayName: user.displayName,
         timestamp: serverTimestamp(),
         read: false

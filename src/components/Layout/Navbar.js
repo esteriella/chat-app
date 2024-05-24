@@ -218,9 +218,10 @@ function Navbar() {
       const userId = getCurrentUserId();
       const notificationsRef = query(
         collection(db, "notifications"),
-        where("chatId", "==", userId)
+        where("receiverId", "==", userId)
       );
-      const snapshot = await getCountFromServer(notificationsRef);
+      const unread = query(notificationsRef, where("read", "==", false));
+      const snapshot = await getCountFromServer(unread);
       const count = snapshot.data().count;
       setNotificationCount(count);
     } catch (error) {
@@ -234,10 +235,9 @@ function Navbar() {
   }, []);
 
   const toggleMenu = () => {
-    if(menuOpen){
+    if (menuOpen) {
       setMenuOpen(false); // Toggle the menu visibility
-    } 
-    else{
+    } else {
       setMenuOpen(true);
     }
   };
@@ -248,9 +248,7 @@ function Navbar() {
         <h1 className="text-white text-xl font-bold">
           React<span className="text-[#6ab4c1ff]">ChatApp</span>
         </h1>
-        <div
-          className="space-x-4 lg:flex hidden"
-        >
+        <div className="space-x-4 lg:flex hidden">
           <Link to="/dashboard" className="text-white hover:text-[#6ab4c1ff]">
             Dashboard
           </Link>
@@ -282,24 +280,18 @@ function Navbar() {
           </svg>
         </div>
         {/* Responsive Menu Links */}
-        {menuOpen &&(
-          <div
-          className=" top-16 right-0 p-10 gap-4 bg-white text-start text-gray-800 absolute lg:hidden flex flex-col"
-        >
-          <Link to="/dashboard" className=" hover:text-[#6ab4c1ff]">
-            Dashboard
-          </Link>
-          <Link to="/profile" className=" hover:text-[#6ab4c1ff]">
-            Profile
-          </Link>
-          <Link
-            to="/notifications"
-            className=" hover:text-[#6ab4c1ff]"
-          >
-            Notifications {notificationCount > 0 && `(${notificationCount})`}
-          </Link>
-        </div>
-        )}
+        {menuOpen &&
+          <div className=" top-16 right-0 p-10 gap-4 bg-white text-start text-gray-800 absolute lg:hidden flex flex-col">
+            <Link to="/dashboard" className=" hover:text-[#6ab4c1ff]">
+              Dashboard
+            </Link>
+            <Link to="/profile" className=" hover:text-[#6ab4c1ff]">
+              Profile
+            </Link>
+            <Link to="/notifications" className=" hover:text-[#6ab4c1ff]">
+              Notifications {notificationCount > 0 && `(${notificationCount})`}
+            </Link>
+          </div>}
       </div>
     </nav>
   );

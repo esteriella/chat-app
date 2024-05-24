@@ -11,13 +11,13 @@ import { getStorage } from "firebase/storage";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB_rFAsEN5svK_uuDrWJJ3LDlpDyu5TNlg",
-    authDomain: "chat-app-bf69e.firebaseapp.com",
-    projectId: "chat-app-bf69e",
-    storageBucket: "chat-app-bf69e.appspot.com",
-    messagingSenderId: "58542027197",
-    appId: "1:58542027197:web:dbec03fb4626bd30eda2d4"
-  };
+  apiKey: import.meta.env.REACT_APP_APIKEY,
+  authDomain: import.meta.env.REACT_APP_AUTHDOMAIN,
+  projectId: import.meta.env.REACT_APP_PROJECTID,
+  storageBucket: import.meta.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.REACT_APP_MESSAGINGSENDERID,
+  appId: import.meta.env.REACT_APP_APPID
+};
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
